@@ -1,0 +1,1 @@
+jQuery("window").ready(function(e){init_menu();e("#menu-button").click(function(t){var n=e("#nav-menu");n.slideToggle();e("#menu-button").toggleClass("active");return!1});e(window).smartresize(function(){init_menu()})});

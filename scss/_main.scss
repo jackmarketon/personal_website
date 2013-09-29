@@ -1,0 +1,88 @@
+* { @include box-sizing(border-box); }
+
+body {
+	background: $gray_primary $light_background_one;
+}
+
+.wrap {
+	width: 100%;
+	@include container;
+}
+
+header {
+	width: 100%;
+	.hero {
+		width: 100%; overflow: hidden;
+		height: em(200px);
+
+		@include background-image(linear-gradient($secondary-color, $white));
+		border-bottom: em(2px) solid $gray_secondary;
+		img {
+			display: block;
+		}
+	}
+}
+
+//Homepage
+section {
+	width: 100%;
+	a.meta--box {
+		width: 100%;
+		display: block; position: relative;
+		img {
+			top: 0; left: 0;
+
+			width: 100%; display: block;
+			position: relative; z-index: 1000;
+		}
+		span {
+			bottom: 0; left: 0;
+			width: 100%; display: block;
+			position: absolute; z-index: 1500;
+			background: $gray_tertiary $dark_background;
+			border-left: em(5px) solid $primary-color;
+			@include transition( all 1s ease-in-out );
+		}
+		&:hover {
+			span {
+				background: $gray_tertiary_hover $dark_background;
+				border-left: em(5px) solid $secondary-color;
+			}
+		}
+	}
+}
+
+footer {
+	background: $gray_secondary $dark_background;
+	.footer--box {
+		width: 100%;
+		background: $gray_primary $light_background_two;
+		&:last-child {
+			margin-bottom: 0;
+		}
+		&:first-child {
+			margin-top: 0;
+		}
+	}
+}
+
+@include at-breakpoint($third-break) {
+	.wrap {
+		@include container;
+	}
+	section {
+		width: 100%;
+		a.meta--box {
+			@include isolate-grid(4);
+		}
+	}
+	footer {
+		.footer--box {
+			border: 1px solid $white;
+			@include box-shadow(
+				0 0 em(10px) 0 $black inset
+			);
+			@include isolate-grid(4);
+		}
+	}
+}

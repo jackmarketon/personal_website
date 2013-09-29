@@ -1,0 +1,116 @@
+nav.main--nav {
+	width: 100%; display: block;
+	position: relative; z-index: 2000;
+	background: $gray_tertiary $dark_background;
+	@include box-shadow(
+		em(10px) 0  em(20px) 0 $black,
+		em(-10px) 0 em(20px) $black
+	);
+	@include clearfix;
+	.logo-wrap {
+		display: block; float: left;
+		.logo {
+			a {
+				display: block;
+				padding: em(10px);
+				img {
+					display: block;
+				}
+			}
+		}
+	}
+	.menu-button {
+		display: none; float: right;
+		.button-wrapper {
+			a {
+				display: block;
+				padding: em(10px);
+				margin: em(10px);
+				cursor: pointer;
+				position: relative;
+				margin-right: em(30px);
+				&:after {
+					content: "\2261";
+					font-size: 2em;
+					position: absolute;
+					top: em(5px); right: em(-10px);
+				}
+				&:hover {
+					color: $primary-color;
+				}
+				&.active {
+					color: $secondary-color;
+				}
+			}
+		}
+	}
+	ul {
+		clear: both;
+		width: 100%;
+		display: block;
+		border-top: 1px solid $gray_secondary;
+		li {
+			width: 100%; display: block;
+			border-top: 1px solid $black;
+			border-bottom: 1px solid $gray_secondary;
+			a {
+				width: 100%; border: 0;
+				background: $gray_tertiary $dark_background;
+				display: block; text-align: left;
+				border-left: 0px solid transparent;
+				@include transition(
+					border 0.3s ease-in-out,
+					color 0.7s ease-in-out
+				);
+				&:hover {
+					border-left: em(5px) solid $primary-color;
+					background: $gray_tertiary_hover $dark_background;
+					@include transition(
+						border 0.3s ease-in-out,
+						color 0.7s ease-in-out
+					);
+				}
+				&.active {
+					border-left: em(5px) solid $secondary-color;
+				}
+			}
+		}
+	}
+	@include at-breakpoint($third-break) {
+		.logo-wrap {
+			.logo {
+				a { padding: 0; }
+			}
+		}
+		ul {
+			width: auto;
+			float: right;
+			clear: right;
+			border-top: none;
+			border-left: 1px solid $gray_secondary;
+			li {
+				width: auto;
+				float: left;
+				border-top: none;
+				border-bottom: none;
+				border-left: 1px solid $black;
+				border-right: 1px solid $gray_secondary;
+				a {
+					width: auto;
+					border-top: em(5px) solid transparent;
+					&:hover {
+						border-top: em(5px) solid $primary-color;
+						border-left: none;
+					}
+					&.active {
+						border-top: em(5px) solid $secondary-color;
+						border-left: none;
+					}
+				}
+			}
+		}
+		.nav--wrap {
+			@include container;
+		}
+	}
+}

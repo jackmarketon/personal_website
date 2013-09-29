@@ -1,0 +1,48 @@
+/* Grid Variables */
+$max-width: 1000px;
+
+/* Susy Settigns */
+$total-columns: 4;
+$column-width: 4em;
+$gutter-width: 1em;
+$grid-padding: $gutter-width; //1em
+
+/* Responsive Columns */
+$first-break: $total-columns*1.5 30em;
+
+$second-break: $total-columns*2 40em;
+
+$third-break: 50em $total-columns*3;
+
+/* Base Variables */
+$base-font-size: 16px;
+$base-line-height: 6px;
+
+/* EM Conversion function */
+@function em($target) {
+	@return ($target / $base-font-size) * 1em;
+}
+
+/* Colors */
+$primary-color: #00ff00;
+$secondary-color: adjust-hue($primary-color, 90);
+$tertiary-color: adjust-hue($primary-color, 180);
+
+$white: shade(#ffffff, 10%);
+$gray_primary: darken(#ffffff, 25%);
+$gray_secondary: darken(#ffffff, 50%);
+$gray_tertiary: darken(#ffffff, 75%);
+$gray_tertiary_hover: scale-lightness($gray_tertiary, -25%);
+$black: tint(#000000, 10%);
+
+/* Fonts */
+@import url(http://fonts.googleapis.com/css?family=Noto+Sans:400,700,400italic,700italic|Expletus+Sans:400,700);
+$header-font: "Expletus Sans", Arial, sans-serif;
+$body-font: "Noto Sans", Arial, sans-serif;
+$mono-font: DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New;
+// $alt-font: serif
+
+/* Backgrounds */
+$dark_background: url('../images/backgrounds/dark/use_your_illusion.png');
+$light_background_one: url('../images/backgrounds/light/shattered.png');
+$light_background_two: url('../images/backgrounds/light/subtle_grunge.png');
